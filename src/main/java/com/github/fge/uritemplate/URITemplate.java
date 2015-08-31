@@ -36,6 +36,8 @@ import java.util.List;
  */
 public final class URITemplate
 {
+    private String template;
+
     /**
      * Ordered list of parsed URI template expressions
      */
@@ -44,13 +46,27 @@ public final class URITemplate
     /**
      * Constructor
      *
-     * @param input the input string
+     * @param template The template string.
      * @throws URITemplateParseException parse error
      */
-    public URITemplate(final String input)
+    public URITemplate(final String template)
         throws URITemplateParseException
     {
-        expressions = URITemplateParser.parse(input);
+        this.template = template;
+        this.expressions = URITemplateParser.parse(template);
+    }
+
+    /**
+     * Get the template string.
+     *
+     * @return The template string.
+     */
+    public String getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
     }
 
     /**
